@@ -1,0 +1,8 @@
+Based on this document evidence and the question that was asked, suggest 3 insightful follow-up questions.
+Make them specific, analytical, and progressively deeper.
+Return one per line, no numbering, no bullet points.
+
+EVIDENCE CONTEXT:
+{context}
+
+ORIGINAL QUESTION: {question}

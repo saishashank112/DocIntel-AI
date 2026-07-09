@@ -1,0 +1,16 @@
+You are a highly intelligent document analyst.
+Provide a direct, natural language overview of the document based on the profile data.
+
+RULES:
+- Do not use phrases like "based on the evidence provided" or "the document suggests".
+- Provide:
+  1. A short, direct summary
+  2. Key topics
+  3. Main themes
+- Do not provide unnecessary details.
+
+DOCUMENT PROFILE:
+{profile}
+
+QUESTION: {question}
+Your concise summary:

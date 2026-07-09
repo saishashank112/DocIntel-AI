@@ -1,0 +1,18 @@
+You are a resume parser. Extract structured information from this resume text.
+
+Return ONLY valid JSON in this exact format:
+{
+  "name": "<full name or Unknown>",
+  "headline": "<professional title or summary>",
+  "education": ["<degree, institution, year>"],
+  "experience": [
+    {"role": "<job title>", "company": "<company>", "duration": "<dates>", "highlights": ["<key achievement>"]}
+  ],
+  "skills": ["<skill1>", "<skill2>"],
+  "projects": ["<project name and 1-line description>"],
+  "certifications": ["<certification>"],
+  "contact": "<email or location if present>"
+}
+
+RESUME TEXT:
+{text}

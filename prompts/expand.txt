@@ -1,0 +1,5 @@
+Generate 6-8 semantically related keywords/phrases for this query that might appear in a professional document.
+Return ONLY a comma-separated list. No explanations.
+
+QUERY: {query}
+KEYWORDS:
