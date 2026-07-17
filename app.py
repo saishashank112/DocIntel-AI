@@ -32,18 +32,21 @@ def handle_platform_error(e: PlatformError):
     
     if isinstance(e, ProviderConnectionError):
         err_type = "Connection Error"
-        err_title = "Could not connect to model provider."
+        err_title = "Could not connect to Ollama."
         is_ollama_provider = "ollama" in st.session_state.settings_provider.lower()
         is_ollama_embeddings = "ollama" in st.session_state.settings_embeddings.lower()
         
         if is_ollama_provider or is_ollama_embeddings:
-            err_title = "Could not connect to Ollama."
-            err_desc = "DocIntel was unable to connect to your local Ollama instance."
-            err_fix = "1. Run `ollama serve` in a terminal to start the service.\n2. Verify the model is pulled using `ollama list`.\n3. Make sure the port 11434 is accessible."
-            if is_ollama_embeddings and not is_ollama_provider:
-                err_desc = "DocIntel was unable to connect to Ollama for generating embeddings."
-                err_fix += "\n4. Alternatively, switch the Embedding Model to 'Local Sentence-Transformers' in the Settings Panel."
+            err_desc = "DocIntel was unable to connect to the local Ollama service endpoint."
+            err_fix = (
+                "1. **Running Locally?** Start the service with `ollama serve` in a terminal and verify the models are pulled using `ollama list`.\n"
+                "2. **Running in the Cloud (Streamlit Cloud)?** Local Ollama is not accessible. Please:\n"
+                "   - Go to the **Settings Panel** (under Navigation).\n"
+                "   - Switch the **LLM Provider** to a cloud API provider (e.g. Gemini, OpenAI, Anthropic, OpenRouter).\n"
+                "   - Switch the **Embedding Model** to 'Local Sentence-Transformers' under the **Embeddings** tab."
+            )
         else:
+            err_title = "Could not connect to model provider."
             err_desc = f"Network connection to {st.session_state.settings_provider} failed."
             err_fix = "1. Check your internet connection.\n2. Verify that the provider API endpoints are online."
     elif isinstance(e, ProviderConfigurationError):
