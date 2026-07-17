@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocIntel AI - Enterprise Document Intelligence Platform</title>
+    <meta name="description" content="An enterprise-ready, local-first document intelligence platform that transforms standard document reading into active cognitive assets.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Glow Blobs -->
+    <div class="glow-blob glow-blob-1"></div>
+    <div class="glow-blob glow-blob-2"></div>
+    <div class="glow-blob glow-blob-3"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-group">
+                <span class="logo-icon">🧠</span>
+                <span class="logo-text">DocIntel <span class="logo-accent">AI</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#demo">Interactive Demo</a>
+                <a href="#workflow">Workflow</a>
+                <a href="#deployment">Deployment</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://github.com/saishashank112/DocIntel-AI" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+                <a href="#" class="btn btn-primary btn-sm">Launch App</a>
+            </div>
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">Version 1.0 Live</span>
+            </div>
+            <h1 class="hero-title">
+                Transform Standard Documents into <br>
+                <span class="gradient-text">Active Cognitive Assets</span>
+            </h1>
+            <p class="hero-subtitle">
+                An enterprise-ready, local-first intelligence workspace. Mock interviews, content creation, digital twin simulation, and knowledge graphs — all powered by your documents under complete privacy.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://github.com/saishashank112/DocIntel-AI" target="_blank" class="btn btn-primary btn-lg">
+                    <span>Get Started</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="#features" class="btn btn-secondary btn-lg">Explore Features</a>
+            </div>
+            <div class="hero-visual">
+                <div class="glass-frame">
+                    <img src="dashboard.png" alt="DocIntel AI Platform Dashboard Mockup" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners / Providers Section -->
+    <section class="providers-bar">
+        <div class="section-container">
+            <p class="providers-title">SUPPORTED AI PROVIDERS & MODELS</p>
+            <div class="providers-logos">
+                <div class="provider-badge">Ollama (Local)</div>
+                <div class="provider-badge">OpenAI</div>
+                <div class="provider-badge">Anthropic Claude</div>
+                <div class="provider-badge">Google Gemini</div>
+                <div class="provider-badge">xAI Grok</div>
+                <div class="provider-badge">OpenRouter</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="features-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Engineered for Advanced Document Cognition</h2>
+                <p class="section-description">Beyond standard search and retrieval. DocIntel AI processes PDFs to extract deep insights, generate custom workflows, and build interactive training modules.</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3 class="feature-name">Multi-LLM Orchestration</h3>
+                    <p class="feature-desc">Switch seamlessly between local Ollama instances for complete data privacy and commercial APIs like OpenAI, Claude, and Gemini.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-name">Digital Twin Simulation</h3>
+                    <p class="feature-desc">Simulate first-person chat sessions with the author or subject of your documents to interrogate their arguments directly.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">👔</div>
+                    <h3 class="feature-name">Interactive Interview Prep</h3>
+                    <p class="feature-desc">A mock recruiter runs interactive interviews based on the document, grading your responses on depth, clarity, and communication rubrics.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-name">Content Creation Studio</h3>
+                    <p class="feature-desc">Instantly draft LinkedIn posts, Twitter threads, slide presentations, blog posts, and cover letters using the document context.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🕸️</div>
+                    <h3 class="feature-name">Knowledge Graph Visualizer</h3>
+                    <p class="feature-desc">Interactive, draggable relationship maps display the connections, skills, and entities found within your loaded documents.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-name">Career Alignment Diagnostic</h3>
+                    <p class="feature-desc">Analyze your resume against job specifications to extract match percentages, identify skill gaps, and generate learning roadmaps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Showcase Section -->
+    <section id="demo" class="showcase-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Experience the Workspaces</h2>
+                <p class="section-description">Toggle through the different operational modes of the DocIntel platform interface.</p>
+            </div>
+
+            <div class="showcase-container">
+                <div class="showcase-tabs">
+                    <button class="tab-btn active" data-tab="chat">💬 Chat Assistant</button>
+                    <button class="tab-btn" data-tab="interview">👔 Interview Prep</button>
+                    <button class="tab-btn" data-tab="studio">🎨 Content Studio</button>
+                    <button class="tab-btn" data-tab="graph">🕸️ Knowledge Graph</button>
+                </div>
+
+                <div class="showcase-content-wrapper">
+                    <!-- Chat Tab -->
+                    <div class="showcase-panel active" id="panel-chat">
+                        <div class="panel-header">
+                            <div class="window-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="panel-title-text">Chat Assistant Mode</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="chat-mockup">
+                                <div class="chat-bubble bot">
+                                    <div class="chat-avatar">🤖</div>
+                                    <div class="chat-text">
+                                        <p>I have processed <strong>Resume_Sai_Shashank.pdf</strong>. Hybrid vector search and BM25 keyword matching are initialized. How can I help you extract insights from this profile today?</p>
+                                    </div>
+                                </div>
+                                <div class="chat-bubble user">
+                                    <div class="chat-avatar">👤</div>
+                                    <div class="chat-text">
+                                        <p>What is Sai's experience in cloud deployments and system architectures?</p>
+                                    </div>
+                                </div>
+                                <div class="chat-bubble bot">
+                                    <div class="chat-avatar">🤖</div>
+                                    <div class="chat-text">
+                                        <p>Based on the extracted profile, Sai has extensive experience in containerized applications and cloud architecture:</p>
+                                        <ul>
+                                            <li><strong>Containerization:</strong> Docker and docker-compose configurations for Streamlit-based web apps.</li>
+                                            <li><strong>Cloud Deployment:</strong> Automated GitHub Action workflows deploying to GCP, Render, and Vercel.</li>
+                                            <li><strong>Systems:</strong> Virtual environment structures, configuration file orchestration (`.toml` and `.env` parameters).</li>
+                                        </ul>
+                                        <div class="source-pills">
+                                            <span class="source-pill">Source: Section 3 - Experience</span>
+                                            <span class="source-pill">Source: Dockerfile</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interview Tab -->
+                    <div class="showcase-panel" id="panel-interview">
+                        <div class="panel-header">
+                            <div class="window-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="panel-title-text">Interactive Mock Recruiter</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="interview-mockup">
+                                <div class="question-box">
+                                    <span class="question-tag">Question 1 of 5</span>
+                                    <h3>Explain how you set up the multi-provider system factory in DocIntel AI. How did you structure the BaseProvider interface?</h3>
+                                </div>
+                                <div class="answer-box">
+                                    <textarea placeholder="Type your answer here..." disabled>I created an abstract BaseProvider class with an invoke method. Subclasses like OpenAIProvider and OllamaProvider inherit from it and implement their custom API connection wrappers.</textarea>
+                                    <div class="answer-actions">
+                                        <button class="btn btn-primary btn-sm" disabled>Submit Answer</button>
+                                    </div>
+                                </div>
+                                <div class="evaluation-report">
+                                    <h4 class="eval-title">🎯 Recruiter Verdict & Grading</h4>
+                                    <div class="eval-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Depth</span>
+                                            <span class="metric-val text-success">85% (Excellent)</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Clarity</span>
+                                            <span class="metric-val text-success">90% (Precise)</span>
+                                        </div>
+                                    </div>
+                                    <p class="eval-feedback">"The candidate shows a good architectural grip. Excellent mention of abstract classes and polymorphism, indicating strong OOP background."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Studio Tab -->
+                    <div class="showcase-panel" id="panel-studio">
+                        <div class="panel-header">
+                            <div class="window-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="panel-title-text">Content Studio Output</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="studio-mockup">
+                                <div class="studio-sidebar">
+                                    <button class="studio-option active">📝 LinkedIn Post</button>
+                                    <button class="studio-option">🐦 Twitter Thread</button>
+                                    <button class="studio-option">📧 Cover Letter</button>
+                                    <button class="studio-option">📰 Blog Article</button>
+                                </div>
+                                <div class="studio-content">
+                                    <div class="editor-header">
+                                        <span>Target Platform: LinkedIn</span>
+                                        <span class="status-indicator">Ready</span>
+                                    </div>
+                                    <div class="editor-body">
+                                        <p>🚀 I am thrilled to share the release of <strong>DocIntel AI</strong> - an enterprise-ready workspace designed to unlock document-driven insight!</p>
+                                        <p>Standard PDFs shouldn't just be static files. They hold valuable logic. With DocIntel, you can:</p>
+                                        <p>🔹 Switch between local Ollama instances (for total privacy) & commercial API endpoints.<br>
+                                        🔹 Convert articles into interactive Recruiters for mock interviews.<br>
+                                        🔹 Interact with authors via Digital Twin personas.</p>
+                                        <p>Open source and ready for deployment. Check the link in the comments! 👇</p>
+                                        <p>#AI #MLOps #DocumentIntelligence #OpenSource</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Graph Tab -->
+                    <div class="showcase-panel" id="panel-graph">
+                        <div class="panel-header">
+                            <div class="window-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="panel-title-text">Knowledge Graph Visualizer</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="graph-mockup">
+                                <svg class="network-svg" viewBox="0 0 600 300">
+                                    <!-- Connection Lines -->
+                                    <line x1="300" y1="150" x2="150" y2="80" stroke="rgba(129, 140, 248, 0.4)" stroke-width="2" />
+                                    <line x1="300" y1="150" x2="450" y2="80" stroke="rgba(129, 140, 248, 0.4)" stroke-width="2" />
+                                    <line x1="300" y1="150" x2="200" y2="230" stroke="rgba(129, 140, 248, 0.4)" stroke-width="2" />
+                                    <line x1="300" y1="150" x2="400" y2="230" stroke="rgba(129, 140, 248, 0.4)" stroke-width="2" />
+                                    <line x1="150" y1="80" x2="100" y2="120" stroke="rgba(45, 212, 191, 0.4)" stroke-width="1.5" />
+                                    <line x1="450" y1="80" x2="500" y2="120" stroke="rgba(45, 212, 191, 0.4)" stroke-width="1.5" />
+
+                                    <!-- Core Node -->
+                                    <g class="graph-node" transform="translate(300,150)">
+                                        <circle r="24" fill="url(#violet-grad)" />
+                                        <text dy="5" text-anchor="middle" fill="#fff" font-size="10">DocIntel</text>
+                                    </g>
+
+                                    <!-- Entity Nodes -->
+                                    <g class="graph-node" transform="translate(150,80)">
+                                        <circle r="18" fill="url(#teal-grad)" />
+                                        <text dy="4" text-anchor="middle" fill="#fff" font-size="8">Ollama</text>
+                                    </g>
+                                    <g class="graph-node" transform="translate(450,80)">
+                                        <circle r="18" fill="url(#teal-grad)" />
+                                        <text dy="4" text-anchor="middle" fill="#fff" font-size="8">ChromaDB</text>
+                                    </g>
+                                    <g class="graph-node" transform="translate(200,230)">
+                                        <circle r="16" fill="url(#blue-grad)" />
+                                        <text dy="4" text-anchor="middle" fill="#fff" font-size="8">Python</text>
+                                    </g>
+                                    <g class="graph-node" transform="translate(400,230)">
+                                        <circle r="16" fill="url(#blue-grad)" />
+                                        <text dy="4" text-anchor="middle" fill="#fff" font-size="8">Streamlit</text>
+                                    </g>
+                                    <g class="graph-node" transform="translate(100,120)">
+                                        <circle r="12" fill="rgba(30, 41, 59, 0.8)" stroke="#818cf8" stroke-width="1.5" />
+                                        <text dy="3" text-anchor="middle" fill="#94a3b8" font-size="6">Local LLM</text>
+                                    </g>
+                                    <g class="graph-node" transform="translate(500,120)">
+                                        <circle r="12" fill="rgba(30, 41, 59, 0.8)" stroke="#2dd4bf" stroke-width="1.5" />
+                                        <text dy="3" text-anchor="middle" fill="#94a3b8" font-size="6">Embeddings</text>
+                                    </g>
+
+                                    <!-- Definitions -->
+                                    <defs>
+                                        <linearGradient id="violet-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#a855f7" />
+                                            <stop offset="100%" stop-color="#6366f1" />
+                                        </linearGradient>
+                                        <linearGradient id="teal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#2dd4bf" />
+                                            <stop offset="100%" stop-color="#0d9488" />
+                                        </linearGradient>
+                                        <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#3b82f6" />
+                                            <stop offset="100%" stop-color="#1d4ed8" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section id="workflow" class="workflow-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-description">A secure pipeline designed to respect data sovereignty while extracting maximal logical output.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Local Parsing</h3>
+                        <p>Upload your PDF document. The system uses <code>pdfplumber</code> to extract structured texts and tables locally, bypassing external SaaS storage.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Hybrid Indexing</h3>
+                        <p>Text is split into 1000-character chunks and loaded into ChromaDB (vector) and BM25 (keyword matching) for highly precise query retrieval.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Contextual Reranking</h3>
+                        <p>A local Cross-Encoder reranker scores retrieved passages, making sure only the most relevant document facts are passed to the model provider.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Multi-Engine Verification</h3>
+                        <p>Responses undergo an automated groundiness evaluation to avoid hallucinations, delivering high-confidence insight to your selected interface.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Guidelines / CTA Section -->
+    <section id="deployment" class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Start Transforming Your Documents Today</h2>
+            <p class="cta-subtitle">Run locally in minutes, or orchestrate multi-container instances on GCP, Render, or AWS.</p>
+            
+            <div class="code-box">
+                <div class="code-header">
+                    <span>docker-compose.yml</span>
+                    <button class="copy-btn" id="copy-code-btn">Copy</button>
+                </div>
+                <pre><code>services:
+  docintel:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped</code></pre>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="https://github.com/saishashank112/DocIntel-AI" target="_blank" class="btn btn-primary btn-lg">Explore GitHub Code</a>
+                <a href="https://github.com/saishashank112/DocIntel-AI#setup--installation" target="_blank" class="btn btn-secondary btn-lg">View Install Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="logo-text">DocIntel <span class="logo-accent">AI</span></span>
+                <p>Enterprise-ready, local-first document intelligence platform.</p>
+            </div>
+            <div class="footer-right">
+                <p>© 2026 DocIntel AI. Built for secure and private cognitive computing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
