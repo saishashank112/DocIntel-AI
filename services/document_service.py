@@ -1,6 +1,7 @@
 import pdfplumber
 import re
 import json
+import streamlit as st
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -9,6 +10,7 @@ from rank_bm25 import BM25Okapi
 from config.settings import CHUNK_SIZE, CHUNK_OVERLAP
 from prompts.prompt_registry import get_prompt
 from services.embedding_service import get_embeddings
+from providers.base_provider import ProviderConnectionError, RetrievalError
 
 def extract_full_text(pdf_file):
     """Extract clean text from PDF using pdfplumber with fallback."""
@@ -83,7 +85,20 @@ def process_pdf(pdf_file, llm):
 
     # Embed into ChromaDB
     embeddings = get_embeddings()
-    chroma_db = Chroma.from_documents(chunks, embeddings)
+    try:
+        chroma_db = Chroma.from_documents(chunks, embeddings)
+    except Exception as e:
+        err_msg = str(e)
+        if "connection" in err_msg.lower() or "connect" in err_msg.lower() or "refused" in err_msg.lower() or "ollama" in err_msg.lower():
+            raise ProviderConnectionError(
+                "Failed to connect to the embedding service endpoint.",
+                technical_details=f"Embedding service: {st.session_state.get('settings_embeddings', 'Unknown')}\nDetails: {err_msg}"
+            )
+        else:
+            raise RetrievalError(
+                "Failed to index document chunks into vector database.",
+                technical_details=err_msg
+            )
 
     # BM25 index
     tokenized = [c.page_content.lower().split() for c in chunks]

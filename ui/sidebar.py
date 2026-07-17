@@ -2,6 +2,7 @@ import streamlit as st
 import json
 from services.llm_service import get_llm
 from services.document_service import process_pdf
+from providers.base_provider import PlatformError
 
 def render_sidebar():
     """Render sidebar navigation controls and document metadata details."""
@@ -39,17 +40,33 @@ def render_sidebar():
                 if st.button("⚡ Process & Analyze", use_container_width=True):
                     llm = get_llm()
                     with st.spinner("Extracting and chunking..."):
-                        chroma_db, bm25, chunks, total_pages, doc_profile, resume_data = process_pdf(uploaded_file, llm)
-
-                    st.session_state.chroma_db     = chroma_db
-                    st.session_state.bm25          = bm25
-                    st.session_state.all_chunks    = chunks
-                    st.session_state.total_pages   = total_pages
-                    st.session_state.doc_profile   = doc_profile
-                    st.session_state.resume_data   = resume_data
-                    st.session_state.pdf_filename  = uploaded_file.name
-                    st.session_state.pdf_processed = True
-                    st.rerun()
+                        try:
+                            chroma_db, bm25, chunks, total_pages, doc_profile, resume_data = process_pdf(uploaded_file, llm)
+                            st.session_state.chroma_db     = chroma_db
+                            st.session_state.bm25          = bm25
+                            st.session_state.all_chunks    = chunks
+                            st.session_state.total_pages   = total_pages
+                            st.session_state.doc_profile   = doc_profile
+                            st.session_state.resume_data   = resume_data
+                            st.session_state.pdf_filename  = uploaded_file.name
+                            st.session_state.pdf_processed = True
+                            if "process_error" in st.session_state:
+                                del st.session_state.process_error
+                            st.rerun()
+                        except PlatformError as e:
+                            st.session_state.process_error = {
+                                "type": type(e).__name__,
+                                "message": str(e),
+                                "technical_details": e.technical_details
+                            }
+                            st.rerun()
+                        except Exception as e:
+                            st.session_state.process_error = {
+                                "type": "RetrievalError",
+                                "message": "An unexpected error occurred during document processing.",
+                                "technical_details": str(e)
+                            }
+                            st.rerun()
 
             if st.session_state.pdf_processed and st.session_state.doc_profile:
                 profile = st.session_state.doc_profile
@@ -96,7 +113,7 @@ def render_sidebar():
                     if st.button("🗑️ Clear & Start Over", use_container_width=True):
                         for key in ["messages", "pdf_processed", "pdf_filename", "followups", "doc_profile",
                                     "resume_data", "chroma_db", "bm25", "all_chunks",
-                                    "total_pages", "conversation_history"]:
+                                    "total_pages", "conversation_history", "process_error"]:
                             st.session_state[key] = [] if key in ("messages", "followups", "conversation_history") else None if key not in ("pdf_processed",) else False
                             if key == "pdf_filename":
                                 st.session_state[key] = ""

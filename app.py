@@ -33,10 +33,16 @@ def handle_platform_error(e: PlatformError):
     if isinstance(e, ProviderConnectionError):
         err_type = "Connection Error"
         err_title = "Could not connect to model provider."
-        if "ollama" in st.session_state.settings_provider.lower():
+        is_ollama_provider = "ollama" in st.session_state.settings_provider.lower()
+        is_ollama_embeddings = "ollama" in st.session_state.settings_embeddings.lower()
+        
+        if is_ollama_provider or is_ollama_embeddings:
             err_title = "Could not connect to Ollama."
             err_desc = "DocIntel was unable to connect to your local Ollama instance."
             err_fix = "1. Run `ollama serve` in a terminal to start the service.\n2. Verify the model is pulled using `ollama list`.\n3. Make sure the port 11434 is accessible."
+            if is_ollama_embeddings and not is_ollama_provider:
+                err_desc = "DocIntel was unable to connect to Ollama for generating embeddings."
+                err_fix += "\n4. Alternatively, switch the Embedding Model to 'Local Sentence-Transformers' in the Settings Panel."
         else:
             err_desc = f"Network connection to {st.session_state.settings_provider} failed."
             err_fix = "1. Check your internet connection.\n2. Verify that the provider API endpoints are online."
@@ -262,6 +268,38 @@ if nav == "⚙️ Settings Panel":
             st.rerun()
 
 else:
+    # ── Check for document processing error ──
+    if "process_error" in st.session_state and st.session_state.process_error:
+        st.markdown(f"<h1>🧠 {nav}</h1>", unsafe_allow_html=True)
+        err = st.session_state.process_error
+        
+        from providers.base_provider import (
+            PlatformError,
+            ProviderConnectionError,
+            ProviderConfigurationError,
+            ProviderModelError,
+            RetrievalError,
+            ValidationError
+        )
+        
+        err_cls = RetrievalError
+        if err["type"] == "ProviderConnectionError":
+            err_cls = ProviderConnectionError
+        elif err["type"] == "ProviderConfigurationError":
+            err_cls = ProviderConfigurationError
+        elif err["type"] == "ProviderModelError":
+            err_cls = ProviderModelError
+        elif err["type"] == "ValidationError":
+            err_cls = ValidationError
+            
+        e_obj = err_cls(err["message"], technical_details=err["technical_details"])
+        handle_platform_error(e_obj)
+        
+        if st.button("🗑️ Dismiss Error & Clear", key="dismiss_process_error"):
+            del st.session_state.process_error
+            st.rerun()
+        st.stop()
+
     # ── Verify PDF upload first ──
     if not st.session_state.pdf_processed:
         st.markdown(f"<h1>🧠 {nav}</h1>", unsafe_allow_html=True)
